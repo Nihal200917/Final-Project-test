@@ -1,0 +1,36 @@
+---
+title: "Best Selling Books on Amazon"
+author: "Nihal Neeraj"
+format: html
+execute: 
+  echo: false
+---
+
+```{r}
+#| message: false
+#| label: setup
+library(tidyverse)
+```
+
+```{r}
+#| warning: false
+#| message: false
+#| label: Best_Selling_Books
+
+x <- read_csv(file = "data/BestSeller Books of Amazon.csv") |>
+  ggplot(aes(x = `Author Name`)) +
+  geom_bar(colour = "black", fill = "#3cb2d0", linewidth = 0.5) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1, size = 8)
+  ) +
+  labs(
+    title = "Best Selling Books On Amazon Recommended to Buy",
+    subtitle = "Books made by authors that are chosen the most on Amazon",
+    x = "Author Names",
+    y = "Number of Books"
+       )
+
+print(x)
+```
+

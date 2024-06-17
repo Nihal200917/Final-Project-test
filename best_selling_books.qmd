@@ -17,7 +17,7 @@ library(tidyverse)
 #| message: false
 #| label: Best_Selling_Books
 
-x <- read_csv(file = "data/BestSeller Books of Amazon.csv") |>
+plot1 <- read_csv(file = "data/BestSeller Books of Amazon.csv") |>
   ggplot(aes(x = `Author Name`)) +
   geom_bar(colour = "black", fill = "#3cb2d0", linewidth = 0.5) +
   theme_minimal() +
@@ -31,6 +31,23 @@ x <- read_csv(file = "data/BestSeller Books of Amazon.csv") |>
     y = "Number of Books"
        )
 
-print(x)
+print(plot1)
 ```
+
+```{r}
+#| warning: false
+#| message: false
+#| label: Best_Rated_Authors
+
+plot2 <- read_csv(file = "data/BestSeller Books of Amazon.csv") |>
+  ggplot(aes(x = `Author Name`, y = Rating, group = 1)) +
+  geom_point() +
+  geom_line() +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1)
+  )
+print(plot2)
+```
+
 

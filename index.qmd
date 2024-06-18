@@ -20,7 +20,8 @@ library(tidycensus)
 plot1 <- read_csv("/Users/neera/OneDrive/Documents/Desktop/projects/Final-Project-test/data/Mall_Customers.csv") |>
   drop_na() |>
   ggplot(aes(x = Gender, y = Age, fill = Gender)) +
-  geom_boxplot(width = 0.1, ) +
+  geom_boxplot(width = 0.1) +
+  geom_violin(alpha = 0.5, width = 0.4) +
   scale_y_continuous(limits = c(10, 70), breaks = seq(10, 70, by = 10)) +
   theme_minimal() +
   labs(title = "Age Distribution by Gender Among Mall Customers",

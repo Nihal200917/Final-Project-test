@@ -2,4 +2,14 @@
 title: "About"
 ---
 
-About this site
+```{r}
+library(tidyverse)
+library(tidycensus)
+```
+
+
+```{r}
+plot2 <-  read_csv("/Users/neera/OneDrive/Documents/Desktop/projects/Final-Project-test/data/Mall_Customers.csv") |>
+ggplot(aes(x = `Annual Income`, y = `Spending Score`))
+```
+

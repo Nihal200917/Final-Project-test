@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: fa55b81d-c1d7-4606-98e4-6036928696ff
+      url: 'https://nihal200917.quarto.pub/test_blog'

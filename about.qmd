@@ -1,15 +1,43 @@
 ---
 title: "About"
+author: "Nihal Neeraj"
+execute: 
+  echo: false
 ---
 
 ```{r}
+#| message: false
+#| label: setup
+
 library(tidyverse)
 library(tidycensus)
 ```
 
 
 ```{r}
+#| warning: false
+#| message: false
+
 plot2 <-  read_csv("/Users/neera/OneDrive/Documents/Desktop/projects/Final-Project-test/data/Mall_Customers.csv") |>
-ggplot(aes(x = `Annual Income`, y = `Spending Score`))
+  drop_na() |>
+  ggplot(aes(x = `Annual Income (k$)`, y = `Spending Score (1-100)`)) +
+  geom_point(color = "blue",
+             size = 3, 
+             alpha = 0.6) + 
+  geom_smooth(method = "lm", 
+              se = FALSE, color = "red", 
+              linetype = "dashed",
+              formula = y ~ x) +
+  labs(title = "Relationship between Annual Income \n and Spending Score",
+       x = "Annual Income (k$)",
+       y = "Spending Score (1-100)",
+       caption = "Data Source: Mall_Customers.csv") +
+  theme_minimal(base_size = 15) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"),
+        axis.title = element_text(face = "bold"),
+        panel.grid.major = element_line(color = "gray", size = 0.5),
+        panel.grid.minor = element_line(color = "lightgray", size = 0.25))
+
+print(plot2)
 ```
 
